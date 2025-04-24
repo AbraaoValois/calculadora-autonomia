@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de Autonomia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h1 class="card-title text-center mb-4">Calculadora de Autonomia</h1>
+
+        <form id="form" class="row g-3">
+          <div class="col-md-4">
+            <label for="combustivel" class="form-label">Tipo de Combustível</label>
+            <select class="form-select" id="combustivel" required>
+              <option value="etanol" selected>Etanol</option>
+              <option value="gasolina">Gasolina</option>
+              <option value="diesel">Diesel</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="consumo" class="form-label">Consumo médio (km/l)</label>
+            <input type="number" class="form-control" id="consumo" placeholder="Ex: 6.7" step="0.1" required />
+          </div>
+          <div class="col-md-4">
+            <label for="preco" class="form-label">Preço por litro (R$)</label>
+            <input type="number" class="form-control" id="preco" placeholder="Ex: 5.49" step="0.01" required />
+          </div>
+          <div class="col-md-6">
+            <label for="valor" class="form-label">Valor abastecido (R$)</label>
+            <input type="number" class="form-control" id="valor" placeholder="Ex: 50.00" step="0.01" required />
+          </div>
+          <div class="col-12 text-center mt-4">
+            <button type="submit" class="btn btn-primary w-50">Calcular</button>
+          </div>
+        </form>
+
+        <div id="resultado" class="alert alert-info text-center mt-4 d-none"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <footer class="text-center mt-5 bg-light py-4">
+    <p class="mb-2">Desenvolvido por Abraão Valois &copy;</p>
+    
+    <a href="https://github.com/AbraaoValois" target="_blank" class="text-dark me-3">
+      <i class="bi bi-github fs-4"></i> GitHub
+    </a>
+    
+    <a href="https://www.linkedin.com/in/abraao-valois/" target="_blank" class="text-dark">
+      <i class="bi bi-linkedin fs-4"></i> LinkedIn
+    </a>
+  </footer>
+  
+
+  <script>
+    const form = document.getElementById("form");
+    const resultado = document.getElementById("resultado");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const tipo = document.getElementById("combustivel").value;
+      const consumo = parseFloat(document.getElementById("consumo").value);
+      const preco = parseFloat(document.getElementById("preco").value);
+      const valor = parseFloat(document.getElementById("valor").value);
+
+      const litros = valor / preco;
+      const autonomia = litros * consumo;
+
+      resultado.textContent = `Com R$ ${valor.toFixed(2)} em ${tipo}, você pode rodar aproximadamente ${autonomia.toFixed(1)} km.`;
+      resultado.classList.remove("d-none");
+    });
+  </script>
+
+</body>
+</html>
