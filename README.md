@@ -19,7 +19,7 @@ Uma calculadora simples e responsiva que estima quantos quilômetros é possíve
 
 ## 🔗 Acesse a versão online
 
-👉 [Clique aqui para acessar no GitHub Pages](https://abraaoValois.github.io/calculadora-autonomia/)
+👉 [Clique aqui para acessar no GitHub Pages](https://abraaovalois.github.io/calculadora-autonomia/)
 
 ## 🛠️ Tecnologias
 
